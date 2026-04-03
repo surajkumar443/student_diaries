@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <script>
+      (() => {
+        window.history.forward();
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <title>ChildDiary</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navbar Start -->
+
+    <%- include('./teacherHomeHeader')%>
+
+    <!-- Navbar End -->
+
+    <!-- Registration Start -->
+    <!-- <div class="container-fluid py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <div class="card border-0">
+              <div class="card-header bg-secondary text-center p-4">
+                <h1 class="text-white m-0">Add Announcement</h1>
+                <span style="color: crimson"><%=message%></span>
+              </div>
+              <div class="card-body rounded-bottom bg-primary p-5">
+                <form action="/teacher/addAnnouncementData" method="post">
+                  <div class="form-group">
+                    <span class="text-white">Class Id</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      value="<%=announcementData.classId%>"
+                      id="classId"
+                      name="classId"
+                      required="required"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Class Name</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      value="<%=announcementData.className%>"
+                      id="className"
+                      name="className"
+                      required="required"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Teacher Id</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      value="<%=announcementData.teacherId%>"
+                      id="teacherId"
+                      name="teacherId"
+                      required="required"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Teacher Name</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      value="<%=announcementData.teacherName%>"
+                      id="teacherName"
+                      name="teacherName"
+                      required="required"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Current Session</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      value="<%=announcementData.currentSession%>"
+                      id="currentSession"
+                      name="currentSession"
+                      required="required"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Subject</span>
+                    <input
+                      type="text"
+                      class="form-control border-0 p-1"
+                      id="subject"
+                      name="subject"
+                      required="required"
+                      placeholder="Enter Subject"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span class="text-white">Message</span>
+                    <textarea
+                      type="text"
+                      class="form-control border-0 p-1"
+                      id="message"
+                      name="message"
+                      required="message"
+                      placeholder="Enter Message"
+                    ></textarea>
+                  </div>
+
+                  <br />
+                  <div>
+                    <button
+                      class="btn btn-secondary btn-block border-0 py-3"
+                      type="submit"
+                    >
+                      Add Announcement
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Registration End -->
+
+    <!-- Add Announcement Start -->
+<div class="container-fluid py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-primary shadow">
+          <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Add Announcement</h3>
+            <% if (message) { %>
+              <small class="text-warning d-block mt-2"><%= message %></small>
+            <% } %>
+          </div>
+          <div class="card-body bg-white p-4">
+            <form action="/teacher/addAnnouncementData" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="classId"><strong>Class ID</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="<%= announcementData.classId %>"
+                    id="classId"
+                    name="classId"
+                    readonly
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="className"><strong>Class Name</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="<%= announcementData.className %>"
+                    id="className"
+                    name="className"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="teacherId"><strong>Teacher ID</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="<%= announcementData.teacherId %>"
+                    id="teacherId"
+                    name="teacherId"
+                    readonly
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="teacherName"><strong>Teacher Name</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="<%= announcementData.teacherName %>"
+                    id="teacherName"
+                    name="teacherName"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="currentSession"><strong>Current Session</strong></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="<%= announcementData.currentSession %>"
+                  id="currentSession"
+                  name="currentSession"
+                  readonly
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject"><strong>Subject</strong></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  name="subject"
+                  placeholder="Enter Subject"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message"><strong>Message</strong></label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Enter your message"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-bullhorn mr-2"></i> Submit Announcement
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Add Announcement End -->
+
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5"
+    >
+      <div class="row pt-5">
+        <div class="col-lg-3 col-md-6 mb-5">
+          <a
+            href=""
+            class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
+            style="font-size: 40px; line-height: 40px"
+          >
+            <i class="flaticon-043-teddy-bear"></i>
+            <span class="text-white">ChildDiary</span>
+          </a>
+          <p>
+            Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea
+            dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr
+            stet diam duo eos rebum ipsum diam ipsum elitr.
+          </p>
+          <div class="d-flex justify-content-start mt-4">
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="#"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="#"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="#"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="#"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Get In Touch</h3>
+          <div class="d-flex">
+            <h4 class="fa fa-map-marker-alt text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Address</h5>
+              <p>123 Street, New York, USA</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <h4 class="fa fa-envelope text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Email</h5>
+              <p>info@example.com</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <h4 class="fa fa-phone-alt text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Phone</h5>
+              <p>+012 345 67890</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Quick Links</h3>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Home</a
+            >
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>About Us</a
+            >
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Our Classes</a
+            >
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Our Teachers</a
+            >
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Our Blog</a
+            >
+            <a class="text-white" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
+            >
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Newsletter</h3>
+          <form action="">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control border-0 py-4"
+                placeholder="Your Name"
+                required="required"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control border-0 py-4"
+                placeholder="Your Email"
+                required="required"
+              />
+            </div>
+            <div>
+              <button
+                class="btn btn-primary btn-block border-0 py-3"
+                type="submit"
+              >
+                Submit Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="container-fluid pt-5"
+        style="border-top: 1px solid rgba(23, 162, 184, 0.2)"
+      >
+        <p class="m-0 text-center text-white">
+          &copy;
+          <a class="text-primary font-weight-bold" href="#">Your Site Name</a>.
+          All Rights Reserved.
+
+          <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+          Designed by
+          <a class="text-primary font-weight-bold" href="https://htmlcodex.com"
+            >HTML Codex</a
+          >
+          <br />Distributed By:
+          <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

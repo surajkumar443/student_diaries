@@ -1,0 +1,51 @@
+<!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+      <nav
+        class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
+      >
+        <a
+          href=""
+          class="navbar-brand font-weight-bold text-secondary"
+          style="font-size: 50px"
+        >
+          <i class="flaticon-043-teddy-bear"></i>
+          <span class="text-primary">ChildDiary</span>
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarCollapse"
+        >
+          <div class="navbar-nav font-weight-bold mx-auto py-0">
+            <a href="/admin/adminHome" class="nav-item nav-link active">Home</a>
+            <a href="/admin/adminViewAnnouncement" class="nav-item nav-link">Announcement</a>
+            <a href="/admin/adminViewStudentList" class="nav-item nav-link">Students</a>
+            <a href="/admin/adminViewTeacherList" class="nav-item nav-link">Teachers</a>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                >Class</a
+              > 
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="/admin/adminAddSession" class="dropdown-item">Add Session</a>
+                <a href="/admin/adminAddClass" class="dropdown-item">Add Class</a>
+                <a href="/admin/adminAssignClass" class="dropdown-item">Assign Class</a>
+              </div>
+            </div>
+            <a href="" class="nav-item nav-link">Profile</a>
+            <a href="/admin/passwordUpdate" class="nav-item nav-link">UpdatePassword</a>
+          </div>
+          <a href="/admin/adminLogOut" class="btn btn-primary px-4">Logout</a>
+        </div>
+      </nav>
+    </div>
+    <!-- Navbar End -->
